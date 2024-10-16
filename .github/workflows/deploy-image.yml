@@ -4,7 +4,7 @@ on:
   workflow_dispatch:
   push:
     branches:
-      - master  # Change this to your branch
+      - master
 
 jobs:
   build:
