@@ -28,6 +28,10 @@ jobs:
       - name: Build the Docker image
         run: |
           docker build -t devops-app:latest . 
+
+      - name: Tag Docker image for ECR
+        run: |
+          docker tag devops-app:latest ${{ secrets.AWS_ACCOUNT_ID }}.dkr.ecr.${{ secrets.AWS_REGION }}.amazonaws.com/devops-app:latest
           
       - name: Push the Docker image to ECR
         run: |
