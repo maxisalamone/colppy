@@ -25,9 +25,13 @@ jobs:
         run: |
           aws ecr get-login-password --region ${{ secrets.AWS_REGION }} | docker login --username AWS --password-stdin ${{ secrets.AWS_ACCOUNT_ID }}.dkr.ecr.${{ secrets.AWS_REGION }}.amazonaws.com
 
-      - name: Docker Compose 
-        run: |
-          docker-compose up -d
+      - name: Build & push Docker image
+        uses: mr-smithers-excellent/docker-build-push@v6
+        with:
+          image: repo/image
+          tags: v1, latest
+          registry: registry-url.io
+          dockerfile: Dockerfile
                   
       - name: Push the Docker image to ECR
         run: |
