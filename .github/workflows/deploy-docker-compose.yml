@@ -29,6 +29,7 @@ jobs:
         uses: mr-smithers-excellent/docker-build-push@v6
         with:
           image: colppy
+          tags: latest
           registry:  ${{ secrets.AWS_ACCOUNT_ID }}.dkr.ecr.${{ secrets.AWS_REGION }}.amazonaws.com
         env:
           AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY }}
