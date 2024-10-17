@@ -25,8 +25,9 @@ jobs:
         run: |
           aws ecr get-login-password --region ${{ secrets.AWS_REGION }} | docker login --username AWS --password-stdin ${{ secrets.AWS_ACCOUNT_ID }}.dkr.ecr.${{ secrets.AWS_REGION }}.amazonaws.com
 
-      - name: Docker Compose Actions Workflow
-        uses: actions/docker-compose-actions-workflow @v1
+      - name: Docker Compose 
+        run: |
+          docker-compose up -d
                   
       - name: Push the Docker image to ECR
         run: |
