@@ -4,16 +4,6 @@ services:
     build: .
     image: devops-app
     ports:
-      - "8080"
+      - "9200:8080"
     volumes:
       - /app
-
-  # nginx:
-  #   image: nginx:latest
-  #   ports:
-  #     - "9200:9200"
-  #   volumes:
-  #     - ./nginx/nginx.conf:/etc/nginx/conf.d/default.conf
-  #     - ./nginx/.htpasswd:/etc/nginx/.htpasswd
-  #   depends_on:
-  #     - app
